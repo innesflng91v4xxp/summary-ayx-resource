@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ayx · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafafa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e1e1e;
+      padding: 2.4rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 680px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 2.2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    /* 开场短句 */
+    .opening {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: #3b3b3b;
+      margin-bottom: 1.8rem;
+      border-left: 4px solid #1e3c4f;
+      padding-left: 1.2rem;
+    }
+
+    .opening strong {
+      font-weight: 600;
+      color: #1e3c4f;
+    }
+
+    /* 承接段落 */
+    .intro-para {
+      margin-bottom: 2.2rem;
+    }
+
+    .intro-para p {
+      margin-bottom: 1rem;
+      font-size: 0.98rem;
+    }
+
+    .intro-para a {
+      color: #1e3c4f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b6cbd6;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .intro-para a:hover {
+      border-bottom-color: #1e3c4f;
+      color: #0a1f2b;
+    }
+
+    /* 标题层级 */
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin: 2rem 0 1rem 0;
+      color: #1a2d3a;
+      border-bottom: 1px solid #e5edf2;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.6rem 0;
+      color: #2b3e4b;
+    }
+
+    /* 特点列表 */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.8rem 0;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .feature-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      top: 0;
+      font-weight: 700;
+      color: #3f6b80;
+      font-size: 1.3rem;
+    }
+
+    /* 场景卡片（温和提示区域） */
+    .scene-cards {
+      margin: 1.8rem 0 2rem 0;
+    }
+
+    .scene-item {
+      background: #f5f9fc;
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .scene-item p {
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+      color: #2b404f;
+    }
+
+    .scene-item .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #4c6a7a;
+      background: #dce8ef;
+      padding: 0.12rem 0.6rem;
+      border-radius: 30px;
+      margin-bottom: 0.3rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #eef4f8;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a2d3a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #3d5565;
+    }
+
+    /* 温和结尾 */
+    .gentle-end {
+      margin-top: 2.4rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid #e0eaef;
+      font-size: 0.92rem;
+      color: #3b4f5b;
+      line-height: 1.7;
+    }
+
+    .gentle-end a {
+      color: #1e3c4f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b6cbd6;
+      transition: border-color 0.2s;
+    }
+
+    .gentle-end a:hover {
+      border-bottom-color: #1e3c4f;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 540px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 20px;
+      }
+      .opening {
+        font-size: 1rem;
+        padding-left: 0.9rem;
+      }
+      h2 {
+        font-size: 1.1rem;
+      }
+      .feature-list li {
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+      }
+      .scene-item {
+        padding: 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 开场短句 -->
+    <div class="opening">
+      <strong>ayx</strong> 是一处可被稳定索引的信息节点，不依赖浮夸表述，只提供基础而清晰的指引。
+    </div>
+
+    <!-- 承接段落：简明指南 & 访问提醒 -->
+    <div class="intro-para">
+      <p>
+        当你第一次接触一个未加修饰的域名时，最直接的方式就是先了解它的结构。平台 <a href="https://summary-ayx.com.cn">ayx</a> 本身不主动渲染多余内容，因此对访问者而言，带着明确目标进入会更高效。以下是从使用角度整理的三条基础建议。
+      </p>
+      <p>
+        第一，在进入任何页面之前，确认网络环境能够正常解析域名。部分区域或网络节点可能对境外服务存在限制，如果遇到加载缓慢或无法连接的情况，可以先检查本地 DNS 设置或更换访问时段。第二，保持浏览器为较新版本，某些老旧内核可能无法正确呈现页面布局。第三，如果页面包含交互表单或动态模块，请留意是否启用了 JavaScript 及 Cookie 权限——这些通常是现代站点正常工作的前提。
+      </p>
+    </div>
+
+    <!-- 特点列表 -->
+    <h2>· 结构特点</h2>
+    <ul class="feature-list">
+      <li><strong>内容密度低</strong>——页面信息经过筛选，不堆砌无关段落，减少阅读噪音。</li>
+      <li><strong>导航明确</strong>——主要功能入口或分区均以文字链路呈现，无需猜测图标含义。</li>
+      <li><strong>加载优先级</strong>——核心文本优先渲染，图片及外部资源按需延迟，保证首屏速度。</li>
+      <li><strong>无强制弹窗</strong>——不会在进入时弹出订阅、推送或调查，尊重访问者的浏览节奏。</li>
+    </ul>
+
+    <!-- 场景 + 提示（卡片风格） -->
+    <h2>· 常见访问场景</h2>
+    <div class="scene-cards">
+      <div class="scene-item">
+        <span class="label">场景一</span>
+        <p>快速查阅某个主题下的摘要信息——<a href="https://summary-ayx.com.cn">ayx</a> 的页面标题与段落首句通常会概括核心内容，适合扫描式阅读。</p>
+      </div>
+      <div class="scene-item">
+        <span class="label">场景二</span>
+        <p>验证某个链接或资源是否仍然有效。因为站点结构相对静态，失效链接会直接返回明确的状态码，减少混淆。</p>
+      </div>
+      <div class="scene-item">
+        <span class="label">场景三</span>
+        <p>作为书签收藏的中间页。很多用户会将简洁的索引页设为自己的起始点，再通过内部链接跳转至具体分类。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2>· 常见疑问简答</h2>
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="faq-q">为什么页面看起来非常简单？</div>
+        <div class="faq-a">这是有意的设计选择——减少视觉干扰，让信息本身成为焦点。大部分功能性的说明反而会隐藏在二级页面中。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否需要在访问前注册或登录？</div>
+        <div class="faq-a">目前公开区域无需身份验证即可浏览。如果未来增加需要权限的板块，页面上会以明显的方式告知。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">遇到页面显示异常应该怎么办？</div>
+        <div class="faq-a">首先尝试清除浏览器缓存或使用无痕模式重新加载。如果问题持续，可以检查域名解析是否指向正确的 IP 地址。</div>
+      </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="gentle-end">
+      综上，<a href="https://summary-ayx.com.cn">ayx</a> 并不追求成为信息量最大的站点，而是希望成为一个可靠、可预期的起点。如果你需要的只是一个能够快速抵达、结构清晰且不贩卖焦虑的页面，那么它可能正好合适。每一次访问前，花十秒钟确认自己的需求与网络条件，会让整个过程更加流畅。
+    </div>
+  </div>
+</body>
+</html>
